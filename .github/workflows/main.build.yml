@@ -1,0 +1,11 @@
+name: 'Main: Build'
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    uses: ./.github/workflows/generic.test.yml
+    with:
+      plugin_name: multiverse-netherportals
