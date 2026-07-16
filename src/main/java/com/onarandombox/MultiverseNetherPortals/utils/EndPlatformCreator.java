@@ -4,6 +4,7 @@ import com.dumptruckman.minecraft.util.Logging;
 import com.onarandombox.MultiverseCore.api.MultiverseWorld;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -37,7 +38,7 @@ public class EndPlatformCreator {
                 for (int yMod = 1; yMod <= 3; yMod++) {
                     Block block = platformBlock.getRelative(BlockFace.UP, yMod);
                     if (block.getType() != Material.AIR) {
-                        if (!dropEndBlocks || !block.breakNaturally()) {
+                        if (!dropEndBlocks || !block.breakNaturally(new ItemStack(Material.DIAMOND_SHOVEL))) {
                             block.setType(Material.AIR);
                         }
                         Logging.finest("Breaking block at " + block);
